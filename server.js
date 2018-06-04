@@ -27,7 +27,7 @@ var port = process.env.PORT || 8081;
 
 app.use(serveStatic(__dirname + client));
 
-app.get("/", (req, res) =>{
+app.get("/oi", (req, res) =>{
     res.send("Oi, Integração Contínua");
 });
 
