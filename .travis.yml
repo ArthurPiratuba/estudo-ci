@@ -5,5 +5,5 @@ deploy:
     provider: heroku
     api_key: 
         secure: "f097127b-3ee7-4161-b2f3-d051833495c7"
-    app: ci-agile-th
+    app: estudo-ci
     
