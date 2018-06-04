@@ -27,6 +27,10 @@ var port = process.env.PORT || 8081;
 
 app.use(serveStatic(__dirname + client));
 
+app.get("/", (req, res) =>{
+    res.send("Oi, Integração Contínua");
+});
+
 app.listen(port,function(){
     console.log('localhost:'+port);
 });
