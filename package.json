@@ -1,0 +1,29 @@
+{
+  "name": "estudo-ci-repo",
+  "version": "1.0.0",
+  "main": "Gruntfile.js",
+  "dependencies": {
+    "bower": "^1.8.4",
+    "express": "^4.16.3",
+    "server-static": "^2.0.5"
+  },
+  "devDependencies": {
+    "bower": "^1.8.4"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ArthurPiratuba/estudo-ci.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ArthurPiratuba/estudo-ci/issues"
+  },
+  "homepage": "https://github.com/ArthurPiratuba/estudo-ci#readme",
+  "keywords": [],
+  "description": ""
+}
