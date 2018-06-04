@@ -1,3 +1,4 @@
+
 /**
  * Module express
  */
@@ -25,3 +26,7 @@ console.log('environment: ', process.env.NODE_APP_DIRECTORY);
 var port = process.env.PORT || 8081;
 
 app.use(serveStatic(__dirname + client));
+
+app.listen(port,function(){
+    console.log('localhost:'+port);
+});
