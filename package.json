@@ -1,28 +1,50 @@
 {
-  "name": "estudo-ci-repo",
+  "name": "pedidos_insercao",
   "version": "1.0.0",
-  "main": "Gruntfile.js",
-  "dependencies": {
-    "bower": "^1.8.4",
-    "express": "^4.16.3",
-    "server-static": "^2.0.5"
-  },
-  "devDependencies": {
-    "bower": "^1.8.4"
-  },
-  "scripts": {
-    "start": "node server.js"
-  },
+  "description": "Sistema para controle de pedidos de inserção",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ArthurPiratuba/estudo-ci.git"
+    "url": "https://arthurhack.visualstudio.com/_git/Pedidos_Insercao"
   },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/ArthurPiratuba/estudo-ci/issues"
+  "author": "Arthur Samuel Hack",
+  "dependencies": {
+    "bluebird": "^3.4.6",
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "express-load": "^1.1.15",
+    "method-override": "^2.3.6",
+    "mongoose": "^4.6.3",
+    "mongoose-auto-increment": "^5.0.1",
+    "morgan": "^1.7.0"
   },
-  "homepage": "https://github.com/ArthurPiratuba/estudo-ci#readme",
-  "keywords": [],
-  "description": ""
+  "scripts": {
+    "deploy": "gcloud app deploy",
+    "start": "node app.js"    
+  },
+  "engines" : {
+     "node" : ">=6.9.1" 
+  },
+  "devDependencies": {
+    "@google-cloud/nodejs-repo-tools": "1.4.15",
+    "event-stream": "^3.3.4",
+    "gulp": "^3.9.1",
+    "gulp-clean": "^0.3.2",
+    "gulp-clean-css": "^2.0.13",
+    "gulp-concat": "^2.6.0",
+    "gulp-htmlmin": "^3.0.0",
+    "gulp-jshint": "^2.0.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^2.0.0",
+    "jshint": "^2.9.3",
+    "run-sequence": "^1.2.2"
+  },
+  "cloud-repo-tools": {
+    "test": {
+      "app": {
+        "msg": "Hello, world!"
+      }
+    },
+    "requiresKeyFile": true,
+    "requiresProjectId": true
+  }
 }

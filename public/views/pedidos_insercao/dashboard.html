@@ -1,0 +1,157 @@
+<div class="row">
+
+   
+
+
+
+
+        <!--NENHUM-->
+        <div class="col-lg-12 col-md-12" ng-show="countForaDoPrazoNoAr + countEncerramHoje + countNoAr + countRecentes == 0">    
+            <div class="panel panel-blue">
+                <a href="#/novoPedido">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-xs-3">
+                                <i class="fa fa-exclamation-triangle fa-5x"></i>
+                            </div>
+                            <div class="col-xs-9 text-right">
+                                <div class="huge">0</div>
+                                <div>Nenhum pedido encontrado no sistema :-/</div>
+                            </div>
+                        </div>
+                    </div>            
+                    <div class="panel-footer">
+                        <span class="pull-left">Cadastrar um</span>
+                        <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                        <div class="clearfix"></div>
+                    </div> 
+                </a>           
+            </div>      
+        </div>                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!--PASSOU DO PRAZO-->
+        <div class="col-lg-12 col-md-12" ng-show="countForaDoPrazoNoAr">    
+            <div class="panel panel-red">
+                <a href="#/foraDoPrazoNoAr">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-xs-3">
+                                <i class="fa fa-exclamation-triangle fa-5x"></i>
+                            </div>
+                            <div class="col-xs-9 text-right">
+                                <div class="huge">{{countForaDoPrazoNoAr}}</div>
+                                <div>Encerrou, no ar!</div>
+                            </div>
+                        </div>
+                    </div>            
+                    <div class="panel-footer">
+                        <span class="pull-left">Detalhes</span>
+                        <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                        <div class="clearfix"></div>
+                    </div> 
+                </a>           
+            </div>      
+        </div>                
+        <!--PASSOU DO PRAZO-->
+
+
+
+        <!--TERMINA HOJE-->
+        <div class="col-lg-4 col-md-12" ng-show="countEncerramHoje">        
+            <div class="panel panel-yellow">
+                <a href="#/encerramHoje">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-xs-3">
+                                <i class="fa fa-microphone fa-5x"></i>
+                            </div>
+                            <div class="col-xs-9 text-right">
+                                <div class="huge">{{countEncerramHoje}}</div>
+                                <div>Encerram hoje!</div>
+                            </div>
+                        </div>
+                    </div>            
+                    <div class="panel-footer">
+                        <span class="pull-left">Detalhes</span>
+                        <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                        <div class="clearfix"></div>
+                    </div>   
+                </a>        
+            </div>      
+        </div>
+        <!--TERMINA HOJE-->
+
+
+        <!--TOTAL NO AR-->
+        <div class="col-lg-4 col-md-6" ng-show="countNoAr">       
+            <div class="panel panel-blue">
+                <a href="#/pedidosNoAr">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-xs-3">
+                                <i class="fa fa-microphone fa-5x"></i>
+                            </div>
+                            <div class="col-xs-9 text-right">
+                                <div class="huge">{{countNoAr}}</div>
+                                <div>No ar</div>
+                            </div>
+                        </div>
+                    </div>           
+                    <div class="panel-footer">
+                        <span class="pull-left">Detalhes</span>
+                        <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                        <div class="clearfix"></div>
+                    </div>  
+                </a>         
+            </div>       
+        </div>
+        <!--TOTAL NO AR-->
+
+
+
+        
+        <!--RECENTES-->
+        <div class="col-lg-4 col-md-6" ng-show="countRecentes">       
+            <div class="panel panel-green">
+                <a href="#/recentes">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-xs-3">
+                                <i class="fa fa-microphone fa-5x"></i>
+                            </div>
+                            <div class="col-xs-9 text-right">
+                                <div class="huge">{{countRecentes}}</div>
+                                <div>Recentes</div>
+                            </div>
+                        </div>
+                    </div>           
+                    <div class="panel-footer">
+                        <span class="pull-left">Detalhes</span>
+                        <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                        <div class="clearfix"></div>
+                    </div>  
+                </a>         
+            </div>
+            
+        </div>
+        <!--RECENTES-->
+
+
+</div>
+
+<hr>

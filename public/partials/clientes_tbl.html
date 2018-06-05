@@ -1,0 +1,34 @@
+<!--<input type="text" class="form-control" ng-model="criterioDeBusca" placeholder="Pesquise clientes aqui"/>-->
+<br>
+<div class="table-responsive">
+    <table class="table table-hover table-striped">
+        <thead>
+            <tr>
+                <th>Código</th>
+                <th>Nome</th>
+                <th>Endereço</th>
+                <th>CNPJ/CPF</th>               
+                <th>E-mail</th>
+                <th>Site</th>                
+            </tr>
+        </thead>
+        <tbody>
+            <tr 
+            ng-repeat="c in clientes | filter: criterioDeBusca" 
+            class="tr-hover" 
+            ng-click="detalhes(c._id)">
+                <td>{{c._id}}</td>
+                <td>{{c.nome}}</td>
+                <td>{{c.endereco}}</td>
+                <td>
+                    {{c.cnpj}}                   
+                    {{c.cpf}}              
+                </td>               
+                <td>{{c.email}}</td>
+                <td>{{c.site}}</td>                               
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+

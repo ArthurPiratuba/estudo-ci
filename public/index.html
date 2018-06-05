@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html ng-app="pedidosInsercaoApp" ng-controller="indexCtrl">
+    <head>
+        <title>Pedidos de Inserção - Rádio Piratuba</title>
+        <meta charset="utf-8">        
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Sistema para controle de pedidos de inserção na empresa Rádio Piratuba Fm">
+        <meta name="author" content="Arthur Samuel Hack">
+        <link rel="icon" href="imagens/favicon.ico" type="image/x-icon"/>
+
+        <!--FOLHAS DE ESTILO-->   
+        <link href="lib/metisMenu/dist/metisMenu.min.css" rel="stylesheet">  
+        <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">  
+        <link href="lib/sweetalert/dist/sweetalert.css" rel="stylesheet" type="text/css" >
+        <link href="lib/fullcalendar/dist/fullcalendar.css" rel="stylesheet"  />
+        <link href="lib/pickadate/lib/themes/classic.css" rel="stylesheet"  />
+        <link href="lib/pickadate/lib/themes/classic.date.css" rel="stylesheet"  />
+        <link href="lib/pickadate/lib/themes/classic.time.css" rel="stylesheet"  />
+
+        <link href="css/bootstrap_theme.css" rel="stylesheet" type="text/css" ></link>
+        <link href="css/sb-admin-2.css" rel="stylesheet">
+        <link href="css/app.css" rel="stylesheet" type="text/css"></link>
+        <!--FOLHAS DE ESTILO-->
+
+       
+      
+
+
+        
+        <script src="lib/jquery/dist/jquery.js"></script>
+        <script src="lib/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="lib/metisMenu/dist/metisMenu.min.js"></script>      
+        <script src="lib/sweetalert/dist/sweetalert.min.js"></script>  
+        <script src="lib/moment/min/moment.min.js"></script>
+        <script src="lib/fullcalendar/dist/fullcalendar.js"></script>
+        <script src="lib/pickadate/lib/picker.js"></script>
+        <script src="lib/pickadate/lib/picker.date.js"></script>
+        <script src="lib/pickadate/lib/picker.time.js"></script>
+      
+        <script src="js/sb-admin-2.js"></script>   
+        
+
+          
+        <!--BIBLIOTECAS ANGULAR-->           
+        <script src="lib/angular/angular.js"></script>
+        <script src="lib/angular-route/angular-route.js"></script> 
+        <script src="lib/angular-locale-pt-br/angular-locale_pt-br.js"></script>
+        <script src="lib/angular-touch/angular-touch.js"></script>
+        <script src="lib/angular-messages/angular-messages.js"></script>
+        <script src="lib/angular-cookies/angular-cookies.js"></script>
+        <!--BIBLIOTECAS ANGULAR-->
+
+
+        <script src="lib/ng-pickadate/ng-pickadate.js"></script>
+
+        <!--INICIALIZADOR-->
+        <script src="js/app.js"></script>
+        <!--INICIALIZADOR-->
+
+        <!--CONTROLLERS-->
+        <script src="controllers/cliente/clienteCtrl.js"></script>
+        <script src="controllers/cliente/clienteDetalhesCtrl.js"></script>
+        <script src="controllers/funcionario/funcionarioCtrl.js"></script>
+        <script src="controllers/funcionario/funcionarioDetalhesCtrl.js"></script>
+        <script src="controllers/pedido/pedidoCadastroCtrl.js"></script>
+        <script src="controllers/pedido/pedidoAlterarCtrl.js"></script>
+        <script src="controllers/pedido/pedidoListagemCtrl.js"></script>
+        <script src="controllers/pedido/pedidoDetalhesCtrl.js"></script>
+        <script src="controllers/pedido/pedidosRecentesCtrl.js"></script>
+        <script src="controllers/pedido/pedidosNoArCtrl.js"></script>
+        <script src="controllers/pedido/pedidosEncerramHojeCtrl.js"></script>
+        <script src="controllers/pedido/pedidosForaDoPrazoNoArCtrl.js"></script>
+        <script src="controllers/pedido/pedidosDashboardCtrl.js"></script>
+        <script src="controllers/pedido/pedidoCalendarioCtrl.js"></script>
+        <script src="controllers/indexCtrl.js"></script>
+        <script src="controllers/loginCtrl.js"></script>               
+        <!--CONTROLLERS-->
+
+        <!--SERVICES-->
+        <script src="services/clienteAPIServices.js"></script>
+        <script src="services/funcionarioAPIServices.js"></script>
+        <script src="services/pedidoAPIServices.js"></script>
+        <script src="services/loginAPIServices.js"></script>
+        <!--SERVICES-->
+
+        <!--DIRETIVAS-->
+        <script src="directives/pedidosTblDirective.js"></script>
+        <script src="directives/clientesTblDirective.js"></script>
+        <script src="directives/funcionariosTblDirective.js"></script>
+        <script src="directives/uiDateDirective.js"></script>
+        <script src="directives/uiTimeDirective.js"></script>
+        <script src="directives/menuDirective.js"></script>
+        <!--DIRETIVAS-->
+
+        <!--CONFIG-->
+        <script src="config/routeConfig.js"></script>    
+        <script src="config/valueConfig.js"></script>      
+        <!--CONFIG--> 
+
+        <script src="js/sb-admin-2.js"></script>   
+
+       
+    </head>
+    <body>
+         
+        <div ng-show="loading" class="loading">
+            <span>Carregando, por favor aguarde...</span>
+        </div>  
+
+        <div ng-hide="loading">
+            <div id="wrapper">
+
+                <!--DIRETIVA DE MENU-->
+                <menu></menu>
+
+                <div id="page-wrapper">
+                    <div class="row ">
+                        <div class="col-md-12 col-lg-12">     
+                            <h1 class="page-header">{{values.pageTitle}}</h1>
+                            <img src="imagens/logo.png" id="logo"/>                      
+                            <div ng-view></div>    
+                            <div ng-include="'partials/footer.html'"></div> 
+                        </div>
+                    </div>
+                </div> 
+            </div>  
+        </div>          
+   </body>    
+</html>
+

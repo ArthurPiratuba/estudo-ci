@@ -1,0 +1,245 @@
+<form name="pedidoInsercaoForm" novalidate>   
+
+    <div class="row"> 
+        <div class="col-md-8 "> 
+            <!--FUNCIONARIO E CLIENTE-->
+            <div class="row"> 
+
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="funcionario">Funcionário responsável</label>
+                        <select class="form-control" ng-model="pedido.funcionario_id" ng-options="f._id as f.nome for f in funcionarios" required> 
+                            <option value="">Selecione um funcionário</option>                  
+                        </select>
+                    </div>
+                </div>    
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="empresa">Cliente</label>
+                        <select class="form-control" ng-model="pedido.cliente_id" ng-options="c._id as c.nome for c in clientes" required> 
+                            <option value="">Selecione um cliente</option>                  
+                        </select> 
+                    </div>
+                </div> 
+
+
+            </div>
+            <!--FUNCIONARIO E CLIENTE-->
+
+
+
+            <!--DESCRIÇÃO-->
+            <div class="row"> 
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label for="descricao">Descrição</label>
+                        <textarea class="form-control" ng-model="pedido.descricao" placeholder="Descreva o pedido aqui" name="descricao" required></textarea>   
+                    </div>   
+                </div>        
+            </div>
+            <!--DESCRIÇÃO-->         
+                    
+            
+            
+            <hr>
+            <!--DATAS DE INICIO E TERMINO-->
+            <div class="row"> 
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="dataInicio">Data de Início</label>
+
+                        <input 
+                            class="form-control datepicker"                         
+                            type="text"
+                            ng-model="pedido.data_inicio" 
+                            placeholder="Data Início"
+                            pick-a-date="curTimeA" 
+                            pick-a-date-options="options"  
+                            name="data_inicio"
+                            ng-pattern="/^\d{2}\/\d{2}\/\d{4}$/" 
+                            ng-required="true"
+                        />
+
+                    </div>
+                </div>       
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="dataTermino">Data de Término</label>
+
+                        <input 
+                            class="form-control datepicker" 
+                            type="text"
+                            ng-model="pedido.data_termino" 
+                            pick-a-date="curTimeB" 
+                            pick-a-date-options="options"   
+                            placeholder="Data de Termino" 
+                            name="data_termino" 
+                            ng-pattern="/^\d{2}\/\d{2}\/\d{4}$/"
+                            ng-required="true"
+                        />
+
+                    </div>
+                </div>    
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="status">Status</label>
+                        <select class="form-control" ng-model="pedido.status" id="status" required> 
+                            <option value="">Selecione</option>
+                            <option>Não iniciado</option>
+                            <option>No ar</option>              
+                            <option>Cancelado</option>              
+                            <option>Finalizado</option>                                
+                        </select>                    
+                    </div>
+                </div>    
+            </div>
+            <!--DATAS DE INICIO E TERMINO-->
+        </div>    
+
+
+
+      
+
+
+        <!--HORARIOS-->        
+        <div class="col-md-4">  
+            <label>Horários</label> 
+
+
+            <div class="row">
+                <div class="col-md-12">
+                    <select class="form-control" ng-model="dia_semana" id="dia_semana">
+                        <option value="">Selecione um dia</option>
+                        <option value="dom">Domingo</option>
+                        <option value="seg">Segunda</option>
+                        <option value="ter">Terça</option>
+                        <option value="qua">Quarta</option>
+                        <option value="qui">Quinta</option>
+                        <option value="sex">Sexta</option>
+                        <option value="sab">Sábado</option>
+                    </select>
+                </div>
+            </div>     
+
+            
+            <div class="row">
+                <div class="col-md-8 col-xs-8">
+                    <!--INPUT HORARIO-->
+                    <input type="text" class="form-control" ng-model="horario" id="horario" name="horario" placeholder="Horários para inserção" ng-pattern="/^\d{2}:\d{2}$/"/>
+                </div> 
+                <div class="col-md-4 col-xs-4">
+                    <!--BOTÃO ADICIONAR HORARIO-->
+                    <button id="btnAdicionarHorario" class="btn btn-default" ng-click="adicionarHorario(pedido, dia_semana, horario)" ng-disabled="pedidoInsercaoForm.horario.$invalid || pedidoInsercaoForm.horario.$pristine">
+                        
+                        <i class="fa fa-plus" aria-hidden="true"></i>
+                    </button>
+                </div> 
+            </div> 
+            <br>
+
+
+
+            <!--TABELA DE HORÁRIOS-->
+            <table class="table table-striped">       
+                <tr ng-repeat="horario in pedido.horarios_semana[dia_semana] track by $index">                   
+                    <td colspan="2">{{horario | date: "HH:mm"}}</td>
+                    <td> <a href="" ng-click="apagarHorario(dia_semana, $index)">Apagar</a></td>                    
+                </tr>   
+                <tr ng-if="pedido.horarios_semana[dia_semana].length == 0">
+                    <td>Nenhum horario aqui</td>
+                </tr>             
+            </table>
+        </div> 
+        <!--HORARIOS-->  
+    </div>
+
+  <div class="row">
+     
+                <div class="col-md-8">
+                     <hr>
+                    <div class="table-responsive">
+                        <table class="table" border='0'>
+                            <thead>
+                                <tr>
+                                    <th>Domingo</th>
+                                    <th>Segunda</th>
+                                    <th>Terça</th>
+                                    <th>Quarta</th>
+                                    <th>Quinta</th>
+                                    <th>Sexta</th>
+                                    <th>Sábado</th>            
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-init="dias = ['dom','seg','ter','qua','qui','sex','sab']">
+                                    <td ng-repeat="dia in pedido.horarios_semana track by $index" style="width:14%">
+                                        <ul style="padding-left:0">
+                                            <li ng-repeat="horario in pedido.horarios_semana[dias[$index]]" style="list-style:none">
+                                                <b>{{horario | date: "HH:mm"}}h</b>
+                                            </li>
+                                            <li ng-if="pedido.horarios_semana[dias[$index]].length == 0" style="list-style:none">
+                                                <i>Nenhum</i>
+                                            </li>
+                                        </ul>
+                                     
+                                    </td>                                    
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            
+
+
+
+
+
+
+    <hr>
+    <div class="row">
+        <div class="col-md-4">         
+            <button 
+                class="btn btn-success" 
+                ng-click="adicionarPedido(pedido)" 
+                ng-if="!alteracao"
+                ng-disabled="
+                     pedidoInsercaoForm.$invalid || 
+                    pedidoInsercaoForm.$pristine ||                
+                    ((pedido.horarios_semana.dom.length +
+                    pedido.horarios_semana.seg.length +
+                    pedido.horarios_semana.ter.length +
+                    pedido.horarios_semana.qua.length +
+                    pedido.horarios_semana.qui.length +
+                    pedido.horarios_semana.sex.length +
+                    pedido.horarios_semana.sab.length) < 1)                   
+                ">Cadastrar</button>
+
+
+            <button 
+                class="btn btn-primary" 
+                ng-click="alterarPedido(pedido)" 
+                ng-if="alteracao"
+                ng-disabled="
+                pedidoInsercaoForm.$invalid || 
+                pedidoInsercaoForm.$pristine ||                
+                ((pedido.horarios_semana.dom.length +
+                pedido.horarios_semana.seg.length +
+                pedido.horarios_semana.ter.length +
+                pedido.horarios_semana.qua.length +
+                pedido.horarios_semana.qui.length +
+                pedido.horarios_semana.sex.length +
+                pedido.horarios_semana.sab.length) < 1)
+                
+                
+                ">Atualizar Cadastro</button>
+
+        </div>         
+    </div>    
+
+</form> 
+
+

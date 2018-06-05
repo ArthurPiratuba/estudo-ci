@@ -1,0 +1,222 @@
+<dl>
+    <div class="row"> 
+
+        <!--<div class="col-md-12">
+            <div class="table-responsive">
+                <table class="table table-striped" border='0'>
+                    <thead>
+                        <tr>
+                            <th>Status</th>
+                            <th>Funcionário</th>
+                            <th>Cliente</th>                                 
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="width:33.3%">                               
+                                <span>{{p.status}}</span>                                                           
+                            </td>    
+                            <td style="width:33.3%">                                
+                                <span>{{p.funcionario.nome}}</span>                                                            
+                            </td>  
+                            <td style="width:33.3%">                               
+                                <span>{{p.cliente.nome}}</span>                                                             
+                            </td>                                  
+                        </tr>
+                    </tbody>                    
+                </table>
+            </div>
+        </div>
+
+
+        <div class="col-md-10">
+            <div class="table-responsive">
+                <table class="table table-striped" border='0'>
+                    <thead>
+                        <tr>
+                            <th>Data de Início</th>
+                            <th>Data de Término</th>
+                            <th>Data de Cadastro</th>                                 
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="width:33.3%">                               
+                                <span>{{p.data_inicio | date: "dd/MM/yyyy"}}</span>
+                            </td>    
+                            <td style="width:33.3%">                                
+                                <span>{{p.data_termino | date: "dd/MM/yyyy"}}</span>
+                            </td>  
+                            <td style="width:33.3%">                               
+                                <span>{{p.created_at | date: "dd/MM/yyyy"}}</span>
+                            </td>                                  
+                        </tr>
+                    </tbody>                    
+                </table>
+            </div>
+        </div>
+-->
+
+
+
+
+
+
+
+
+
+
+
+        <div class="col-xs-4 ">          
+            <dt>Status</dt>
+            <span>{{p.status}}</span>  
+        </div>
+        <div class="col-xs-4">
+            <dt>Funcionário</dt>
+            <dd>{{p.funcionario.nome}}</dd>
+        </div>
+        <div class="col-xs-4">
+            <dt>Cliente</dt>
+            <dd>{{p.cliente.nome}}</dd>
+        </div>
+    </div>
+
+    <br>
+
+    <div class="row">
+        <div class="col-xs-4">
+            <dt>Data de Início</dt>
+            <dd>{{p.data_inicio | date: "dd/MM/yyyy"}}</dd>
+        </div>
+        <div class="col-xs-4">
+            <dt>Data de Término</dt>
+            <dd>{{p.data_termino | date: "dd/MM/yyyy"}}</dd>
+        </div>
+        <div class="col-xs-4">
+            <dt>Data de Cadastro</dt>
+            <dd>{{p.created_at | date: "dd/MM/yyyy"}}</dd>
+        </div>          
+    </div>
+    <br>
+    <hr>
+
+    <div class="row">
+        <div class="col-md-8">
+            <dt>Descrição</dt>
+            <dd>{{p.descricao}}</dd>
+        </div> 
+    </div>       
+
+    <br>
+    <hr>
+    <div class="row" ng-init="
+    dias_full = ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado'];
+    dias = ['dom','seg','ter','qua','qui','sex','sab']">
+        <!--<div class="col-xs-3 col-md-1" ng-repeat="dia in p.horarios_semana track by $index">
+            <dt>{{dias_full[$index]}}</dt>
+            <dd>
+                <ul style="padding-left:0">
+                    <li ng-repeat="horario in p.horarios_semana[dias[$index]]" style="list-style:none">
+                        {{horario | date: "HH:mm"}}h
+                    </li>
+                    <li ng-if="p.horarios_semana[dias[$index]].length == 0" style="list-style:none">
+                        Nenhum
+                    </li>
+                </ul>
+            </dd>
+        </div>      -->
+
+
+        <div class="col-md-12">
+            <div class="table-responsive">
+                <table class="table" border='0'>
+                    <thead>
+                        <tr>
+                            <th><dt>Domingo</dt></th>
+                            <th><dt>Segunda</dt></th>
+                            <th><dt>Terça</dt></th>
+                            <th><dt>Quarta</dt></th>
+                            <th><dt>Quinta</dt></th>
+                            <th><dt>Sexta</dt></th>
+                            <th><dt>Sábado</dt></th>            
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-init="dias = ['dom','seg','ter','qua','qui','sex','sab']">
+                            <td ng-repeat="dia in p.horarios_semana track by $index" style="width:14%">
+                                <ul style="padding-left:0">
+                                    <li ng-repeat="horario in p.horarios_semana[dias[$index]]" style="list-style:none">
+                                        {{horario | date: "HH:mm"}}h
+                                    </li>
+                                    <li ng-if="p.horarios_semana[dias[$index]].length == 0" style="list-style:none">
+                                        Nenhum
+                                    </li>
+                                </ul>
+                                
+                            </td>                                    
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+<!--
+
+
+        <div class="col-md-12">
+            <div class="table-responsive">
+                <table class="table" border='0'>
+                    <thead>
+                        <tr>
+                            <th><dt>Domingo</dt></th>
+                            <th><dt>Segunda</dt></th>
+                            <th><dt>Terça</dt></th>
+                            <th><dt>Quarta</dt></th>
+                            <th><dt>Quinta</dt></th>
+                            <th><dt>Sexta</dt></th>
+                            <th><dt>Sábado</dt></th>            
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-init="dias = ['dom','seg','ter','qua','qui','sex','sab']">
+                            <td ng-repeat="dia in p.horarios_semana track by $index" style="width:14%">
+                                <ul style="padding-left:0">
+                                    <li ng-repeat="horario in p.horarios_semana[dias[$index]]" style="list-style:none">
+                                        {{horario | date: "HH:mm"}}h
+                                    </li>
+                                    <li ng-if="p.horarios_semana[dias[$index]].length == 0" style="list-style:none">
+                                        Nenhum
+                                    </li>
+                                </ul>
+                                
+                            </td>                                    
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+-->
+
+
+           
+    </div>
+    <br>
+    <br>
+</dl>
+<hr>
+<div class="row">
+    <div class="col-md-2">         
+        <button ng-click="alterar(p._id)" class="btn btn-primary">Alterar</button>
+    </div>
+    <div class="col-md-2">         
+        <button ng-click="imprimir(p)" class="btn btn-default">Imprimir</button>
+    </div>
+</div>

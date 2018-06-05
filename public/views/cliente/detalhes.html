@@ -1,0 +1,41 @@
+<dl>
+    <div class="row">        
+        <div class="col-md-4">          
+            <dt>Nome</dt>
+            <dd>{{c.nome}}</dd>  
+        </div>
+        <div class="col-md-4">
+            <dt>Telefones</dt>
+            <dd ng-repeat="t in c.telefones">{{t.numero}} - {{t.tipo}}</dd>
+        </div>
+        <div class="col-md-4">
+            <dt>Endereço</dt>
+            <dd>{{c.endereco}}</dd>
+        </div>     
+
+
+
+    <div class="col-md-4">
+            <dt>Site</dt>
+            <dd>{{c.site}}</dd>
+        </div>  
+
+
+            <div class="col-md-4">
+            <dt>E-mail</dt>
+            <dd>{{c.email}}</dd>
+        </div>  
+
+
+            <div class="col-md-4">
+            <dt>CPF</dt>
+            <dd>{{c.cpf}}</dd>
+        </div>  
+
+
+        
+    </div>    
+    <br>
+    <br>
+</dl>
+<hr>

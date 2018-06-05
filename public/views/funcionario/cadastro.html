@@ -1,0 +1,56 @@
+<form name="funcionarioForm">  
+
+    <div class="row">
+        <div class="col-md-7">
+
+            <div class="row">                    
+                <div class="col-md-12 ">  
+                    <div class="form-group">
+                        <label>Nome completo</label>
+                        <input class="form-control" type="text" ng-model="funcionario.nome" name="nome" placeholder="Nome completo"/>  
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">    
+                <div class="col-md-7 ">  
+                    <div class="form-group">
+                        <label>E-mail</label>
+                        <input class="form-control" type="email" ng-model="funcionario.email" name="email" placeholder="E-mail"/>
+                    </div>
+                </div>
+                <div class="col-md-5 ">    
+                    <div class="form-group">
+                        <label>Usuário</label>
+                        <input class="form-control" type="text" ng-model="funcionario.usuario" name="usuario" placeholder="Usuário (usado para login)"/>
+                    </div>
+                </div> 
+            </div>
+
+            <div class="row">   
+                <div class="col-md-6 "> 
+                    <div class="form-group">
+                        <label>Senha</label>
+                        <input class="form-control" type="password" ng-model="funcionario.senha" name="senha" placeholder="Senha"/> 
+                    </div>
+                </div> 
+                <div class="col-md-6 "> 
+                    <div class="form-group">
+                        <label>Repetir senha</label>
+                        <input class="form-control" type="password" name="senha" placeholder="Repetir senha"/> 
+                    </div>
+                </div> 
+            </div>  
+
+        </div>          
+    </div>    
+    <hr>
+
+    <div class="row">
+        <div class="col-md-2">
+            <button class="btn btn-success" ng-click="adicionarFuncionario(funcionario)">Cadastrar</button>
+        </div>         
+    </div>        
+</form>    
+
+

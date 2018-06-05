@@ -1,0 +1,109 @@
+<form name="clienteForm" novalidate>   
+    <div class="row">
+        <div class="col-md-7">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="form-group">
+                        <label>Nome</label>
+                        <input  class="form-control" type="text" name="nomeEmpresa" placeholder="Nome" ng-model="cliente.nome" ng-required="true" />  
+                    </div>   
+                </div>
+
+                <div class="col-md-4">
+                        <div class="form-group">
+                            <label>E-mail</label>
+                            <input class="form-control" type="text" ng-model="cliente.email" name="email" placeholder="E-mail"/> 
+                        </div>
+                </div> 
+            </div>
+
+            <div class="form-group">
+                <label>Endereço</label>
+                <input class="form-control" type="text" ng-model="cliente.endereco" name="endereco" placeholder="Endereço"/> 
+            </div>   
+
+
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">                          
+                        <input type="radio" value="cpf" ng-model="documento" ng-disabled="documento == 'cnpj'"/> <label>CPF</label>
+                        <input type="radio" value="cnpj" ng-model="documento" ng-disabled="documento == 'cpf'"/> <label>CNPJ</label>
+                        <input class="form-control" type="text" ng-model="cliente.cpf" name="cpf" id="txtCpf" placeholder="CPF" ng-show="documento == 'cpf'"
+                        ng-pattern="/[0-9]{3}\.?[0-9]{3}\.?[0-9]{3}\-?[0-9]{2}/" /> 
+
+                        <input class="form-control" type="text" ng-model="cliente.cnpj" name="cnpj" id="txtCnpj" placeholder="CNPJ" ng-show="documento == 'cnpj'" 
+                        ng-pattern="/[0-9]{2}\.?[0-9]{3}\.?[0-9]{3}\/?[0-9]{4}\-?[0-9]{2}/"/> 
+                    </div>             
+                </div>   
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Site</label>
+                        <input class="form-control" type="text" ng-model="cliente.site" name="site" placeholder="Site"/> 
+                    </div>  
+                </div> 
+            </div>
+        </div>   
+
+
+
+
+
+        <div class="col-md-5">   
+      
+            <label>Telefones</label>            
+            <div class="row">
+                <div class="col-md-5">                
+                    <input class="form-control" type="text" ng-model="telefone.numero" placeholder="Telefone" name="telefoneNum" id="txtTelefone"/>
+                </div>
+                <div class="col-md-4">                
+                    <input class="form-control" type="text" ng-model="telefone.tipo" placeholder="Descrição" name="telefoneTipo"/>
+                </div>
+                <div class="col-md-3">                
+                    <button class="btn btn-default" ng-click="adicionarTelefone(telefone)"
+                    ng-disabled="
+                    clienteForm.telefoneNum.$pristine || 
+                    clienteForm.telefoneTipo.$pristine ||                     
+                    telefone.tipo.length < 1 ||
+                    telefone.numero.length < 14"
+                    ><i class="fa fa-plus" aria-hidden="true"></i></button>
+
+                   
+                  
+                </div>
+            </div>
+            <br>
+            <table class="table table-striped">                
+                <tbody>
+                    <tr ng-repeat="telefone in cliente.telefones track by $index">
+                        <td>{{telefone.numero}}</td>
+                        <td>{{telefone.tipo}}</td>
+                        <td><a href="" ng-click="apagarTelefone($index)">Apagar</a></td>
+                    </tr>
+                </tbody>
+            </table> 
+        </div>
+    </div>   
+
+    <hr>
+    <div class="row">
+        <div class="col-md-2">
+            <button 
+                class="btn btn-success" 
+                ng-if="!alteracao"
+                ng-click="adicionarCliente(cliente)"
+                ng-disabled="
+                    clienteForm.$invalid ||
+                    clienteForm.$pristine
+                ">Cadastrar</button>
+          
+            <button 
+                class="btn btn-primary" 
+                ng-if="alteracao"
+                ng-click="alterarCliente(cliente)"
+            >Alterar</button>
+        </div>         
+    </div>                  
+    
+</form>    
+
